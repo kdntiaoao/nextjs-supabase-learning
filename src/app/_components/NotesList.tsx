@@ -5,13 +5,13 @@ import { sleep } from '@/utils/sleep'
 type Note = Database['public']['Tables']['notes']['Row']
 
 const fetchNotes = async () => {
-  // await sleep(2000)
+  await sleep(1000)
   const res = await fetch(`${process.env.NEXT_PUBLIC_SUPABASE_URL}/rest/v1/notes?select=*`, {
     headers: {
       apikey: process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
     },
     // cache: 'force-cache', // default
-    // cache: 'no-store', // SSR
+    cache: 'no-store', // SSR
     // next: { revalidate: 1000 },
   })
   if (!res.ok) {
