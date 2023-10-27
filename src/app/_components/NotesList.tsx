@@ -29,10 +29,7 @@ export const NotesList = async () => {
       <h2 className="text-2xl font-bold">Notes</h2>
       <ul className="mt-4 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
         {notes.map((note) => (
-          <li
-            key={note.id}
-            className="flex flex-col gap-1 rounded-md border border-gray-200 p-4 shadow-sm transition hover:shadow-md"
-          >
+          <li key={note.id} className="flex flex-col gap-1 rounded-md border border-gray-200 p-4 shadow-sm">
             <div className="text-lg">{note.title}</div>
             <time dateTime={note.created_at} className="text-sm italic text-gray-400">
               Created at: {dateToString(note.created_at)}
