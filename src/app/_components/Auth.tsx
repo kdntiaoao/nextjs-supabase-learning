@@ -7,8 +7,7 @@ import { useState } from 'react'
 import { PrimaryButton } from './PrimaryButton'
 
 export const Auth = () => {
-  // const loginUser = useStore((state) => state.loginUser)
-  const { loginUser } = useStore()
+  const loginUser = useStore((state) => state.loginUser)
   const [isLogin, setIsLogin] = useState(true)
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -25,7 +24,7 @@ export const Auth = () => {
         alert(error.message)
       } else {
         console.log('Login success!!', { loginUser })
-        router.push('/')
+        router.push('/todos')
       }
     } else {
       console.log('Register mode!')
@@ -47,7 +46,7 @@ export const Auth = () => {
     <div className="flex flex-col items-center space-y-10">
       <p>{loginUser.email ? loginUser.email : 'Not logged in'}</p>
 
-      <PrimaryButton onClick={signOut}>Sign Out</PrimaryButton>
+      {loginUser.email && <PrimaryButton onClick={signOut}>Sign Out</PrimaryButton>}
 
       <form className="flex flex-col space-y-4" onSubmit={handleSubmit}>
         <div className="flex w-64 flex-col space-y-1">

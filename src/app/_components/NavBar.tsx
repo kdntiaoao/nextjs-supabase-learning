@@ -17,6 +17,10 @@ const navLinks = [
     href: '/auth',
     label: 'AUTH',
   },
+  {
+    href: '/todos',
+    label: 'TODOS',
+  },
 ]
 
 export const NavBar = () => {
